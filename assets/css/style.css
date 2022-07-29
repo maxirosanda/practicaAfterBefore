@@ -1,0 +1,198 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+
+.underline-hover::after{
+    content: "";
+    height: 4px;
+    width: 0;
+    background-color: blue;
+    display: block;
+    transition: all 350ms;
+}
+.underline-hover:hover::after{
+    width: 100%;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+
+}
+
+.card .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+  }
+  .card .front {
+    background-color: brown;
+    transform: perspective(600px) rotateY(0deg);
+  }
+  .card .front img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card .front h3 {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    color: white;
+    background-color: blue;
+    text-align: center;
+
+  }
+
+  .card .back{
+    background-color: blue;
+    transform: perspective(600px) rotateY(180deg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 15px;
+
+}
+
+.card .back .link{
+    border-top: solid  1px white;
+    height: 50px;
+    line-height: 50px;
+    
+}
+.card .back .link a {
+    color: white;
+  }
+
+  .card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+  }
+  .card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+  }
+  .card2s{
+    display: flex;
+    justify-content: space-around;
+  }
+  .card2{
+    border-radius: 7px;
+    width: 300px;
+    height: 360px;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+
+  }
+
+  .card2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    box-shadow: 12px 11px 35px -17px rgba(0,0,0,0.75);
+  }
+
+  .card2 .info {
+    position: absolute;
+    bottom: -10px;
+    overflow: hidden;
+    color: white;
+    padding: 15px;
+    z-index: 3;
+    opacity: 0;
+    transition: 1s all;
+
+  }
+
+  .card2:hover .info{
+    opacity: 1;
+    bottom: 0;
+  }
+
+  .card2 .btn2 {
+    border: 0;
+    background-color: brown;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color:white;
+    text-decoration: none;
+    
+  }
+
+
+  .card2::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #750a0a, rgb(27, 27, 27));
+    transition: 0.5s all;
+    border-radius: 10px;
+  }
+
+  .card2:hover::before {
+    opacity: 0.8;
+  }
+
+  .header-2{
+    background-image: url(../img/2.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255, 0, 0, 0.5)), color-stop(17%, rgba(255, 0, 0, 0.5)), color-stop(58%, rgba(176, 0, 0, 0.5)), color-stop(100%, rgba(120, 3, 3, 0.838)));
+
+  }
+
+  form{
+    width: 400px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+  }
+  form input ,textarea {
+    border: 0;
+    border-bottom: solid 1px;
+  }
+  form input[type="submit"]{
+    background-color: #750a0a;
+    color: white;
+    padding: 15px;
+  }
