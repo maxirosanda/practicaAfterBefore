@@ -1,235 +1,389 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-
-.underline-hover::after{
-    content: "";
-    height: 4px;
-    width: 0;
-    background-color: blue;
+@font-face {
+  font-family: "fontAwesome";
+  src: url("../../assets/fonts/fontAwesome/fa-v4compatibility.ttf") format("truetype");
+}
+@font-face {
+  font-family: "fontAwesomeSolid";
+  src: url("../../assets/fonts/fontAwesome/fa-solid-900.ttf") format("truetype");
+}
+.navbar {
+  width: 100vw;
+  height: 70px;
+  background-color: rgb(0, 4, 255);
+  display: flex;
+  justify-content: end;
+}
+.navbar__menu {
+  padding: 20px;
+  display: none;
+}
+.navbar__menu::before {
+  content: "\f0c9";
+  font-family: "fontAwesomeSolid";
+  color: white;
+  font-size: 20px;
+}
+.navbar__menu:hover + ul {
+  left: 0;
+}
+@media (max-width: 500px) {
+  .navbar {
+    justify-content: start;
+  }
+  .navbar__menu {
     display: block;
-    transition: all 350ms;
+  }
 }
-.underline-hover:hover::after{
-    width: 100%;
+.navbar ul {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 10px;
+}
+@media (max-width: 500px) {
+  .navbar ul {
+    width: 250px;
+    left: -100vw;
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 100px;
+    height: 100vh;
+    transition: 0.5s;
+  }
+  .navbar ul:hover {
+    left: 0;
+  }
+}
+.navbar ul li a {
+  padding: 10px 20px;
+  display: block;
+  color: white;
+}
+@media (max-width: 500px) {
+  .navbar ul li a {
+    color: black;
+    font-size: 20px;
+  }
 }
 
-.cards{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.underline-hover::after {
+  content: "";
+  height: 4px;
+  width: 0;
+  background-color: white;
+  display: block;
+  transition: all 350ms;
+}
+@media (max-width: 500px) {
+  .underline-hover::after {
+    background-color: blue;
+  }
 }
 
-.card{
-    position: relative;
-    width: 300px;
-    height: 350px;
-    margin: 20px;
+.underline-hover:hover::after {
+  width: 100%;
+}
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  margin: 20px;
+  border: 0;
 }
 
 .card .face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: .5s;
-  }
-  .card .front {
-    background-color: brown;
-    transform: perspective(600px) rotateY(0deg);
-  }
-  .card .front img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .card .front h3 {
-    position:absolute;
-    bottom: 0;
-    width: 100%;
-    height: 45px;
-    color: white;
-    background-color: blue;
-    text-align: center;
-
-  }
-
-  .card .back{
-    background-color: blue;
-    transform: perspective(600px) rotateY(180deg);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    padding: 15px;
-
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
 }
 
-.card .back .link{
-    border-top: solid  1px white;
-    height: 50px;
-    line-height: 50px;
-    
+.card .front {
+  background-color: brown;
+  transform: perspective(600px) rotateY(0deg);
 }
+
+.card .front img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .front h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  color: white;
+  background-color: blue;
+  text-align: center;
+}
+
+.card .back {
+  background-color: blue;
+  transform: perspective(600px) rotateY(180deg);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 15px;
+}
+
+.card .back .link {
+  border-top: solid 1px white;
+  height: 50px;
+  line-height: 50px;
+}
+
 .card .back .link a {
-    color: white;
-  }
-
-  .card:hover .front{
-    transform: perspective(600px) rotateY(180deg);
-  }
-  .card:hover .back{
-    transform: perspective(600px) rotateY(360deg);
-  }
-  .card2s{
-    display: flex;
-    justify-content: space-around;
-  }
-  .card2{
-    border-radius: 7px;
-    width: 300px;
-    height: 360px;
-    background-color: white;
-    position: relative;
-    border-radius: 10px;
-
-  }
-
-  .card2 img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    box-shadow: 12px 11px 35px -17px rgba(0,0,0,0.75);
-  }
-
-  .card2 .info {
-    position: absolute;
-    bottom: -10px;
-    overflow: hidden;
-    color: white;
-    padding: 15px;
-    z-index: 3;
-    opacity: 0;
-    transition: 1s all;
-
-  }
-
-  .card2:hover .info{
-    opacity: 1;
-    bottom: 0;
-  }
-
-  .card2 .btn2 {
-    border: 0;
-    background-color: brown;
-    padding: 5px 15px;
-    border-radius: 5px;
-    color:white;
-    text-decoration: none;
-    
-  }
-
-
-  .card2::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    opacity: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #750a0a, rgb(27, 27, 27));
-    transition: 0.5s all;
-    border-radius: 10px;
-  }
-
-  .card2:hover::before {
-    opacity: 0.8;
-  }
-
-  .header-2{
-    background-image: url(../img/2.png);
-    background-size: cover;
-    background-position: center;
-  }
-
-  .container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(255, 0, 0, 0.5)), color-stop(17%, rgba(255, 0, 0, 0.5)), color-stop(58%, rgba(176, 0, 0, 0.5)), color-stop(100%, rgba(120, 3, 3, 0.838)));
-
-  }
-
-  form{
-    width: 400px;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-  }
-  form input ,textarea {
-    border: 0;
-    border-bottom: solid 1px;
-  }
-  form input[type="submit"]{
-    background-color: #750a0a;
-    color: white;
-    padding: 15px;
-  }
-
-
-  .BotonCompraYaProductos{
-    width: 165px;
-    border: 0;
-    padding: 12px 10px;
-    outline: none;
-    color: rgb(255, 255, 255);
-    background: linear-gradient(to right, #ff36c6, #f48210 );
-    border-radius: 6px;
-    cursor: pointer;
-    transition: width .5s;
-
+  color: white;
 }
 
-.BotonCompraYaProductos img{
-  width: 30px;
-  display: none;
+.card:hover .front {
+  transform: perspective(600px) rotateY(180deg);
 }
-.BotonCompraYaProductos:hover{
-  width:200px;
+
+.card:hover .back {
+  transform: perspective(600px) rotateY(360deg);
+}
+
+.card2 {
+  width: 300px;
+  height: 360px;
+  background-color: white;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 12px 11px 35px -17px rgba(0, 0, 0, 0.75);
+}
+
+.card2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  border-radius: inherit;
+}
+
+.card2 .info {
+  position: absolute;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  bottom: -10px;
+  color: white;
+  padding: 15px;
+  z-index: 3;
+  opacity: 0;
+  transition: 1s all;
+}
+
+.card2:hover .info {
+  opacity: 1;
+  bottom: 0;
+}
+
+.card2 .btn2 {
+  border: 0;
+  text-align: center;
+  background-color: brown;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.card2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #750a0a, rgb(27, 27, 27));
+  transition: 0.5s all;
+  border-radius: 10px;
+}
+
+.card2:hover::before {
+  opacity: 0.8;
+}
+
+.card3 {
+  font-size: 10px;
+  width: 25em;
+  height: 25em;
+  border: none;
+  margin: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 1s;
+}
+.card3 img {
+  width: 100%;
+  transition: 1s;
+}
+.card3 .card3__content {
+  opacity: 0;
+  transform: translateY(-3em);
+  position: absolute;
+  transition: 1s;
+}
+.card3 .card3__content h2 {
+  font-size: 1.6em;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+.card3 .card3__content p {
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+.card3::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: aqua;
+  transform: translate(-35em, -35em) rotateZ(60deg) scale(2);
+  transition: 2s;
+  opacity: 60%;
+}
+.card3:hover::after {
+  transform: translate(0px, 0px) rotateZ(60deg) scale(2);
+}
+.card3:hover img {
+  transform: scale(1.2);
+}
+.card3:hover .card3__content {
+  opacity: 100;
+  transform: translateY(0);
+}
+
+.BtnCompra {
+  width: 165px;
+  border: 0;
+  padding: 12px 10px;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to right, #ff36c6, #f48210);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: width 0.5s;
+  margin: 10px;
+}
+
+.BtnCompra::after {
+  content: "\f178";
+  font-family: "fontAwesome";
+  color: white;
+  opacity: 0;
+}
+
+.BtnCompra:hover {
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.BotonCompraYaProductos:hover img{
-  display: block;
+
+.BtnCompra:hover::after {
+  opacity: 1;
 }
-.BotonCompraYaProductos::after{
-  content: '';
-  width: 10px;
-  height: 63%;
-  background: linear-gradient(to right, #ff36c6, #f48210 );
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.contenedorCubo {
+  width: 100vh;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  perspective: 600px;
+}
+
+.cubo {
+  position: relative;
+  transform-style: preserve-3d;
+  animation-name: girar;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  width: 100px;
+  height: 100px;
+}
+.cubo .cara {
   position: absolute;
-  left: -40px;
-  top: 8px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 255, 255, 0);
 }
+.cubo .frente {
+  background-color: rgba(0, 0, 255, 0);
+  transform: translateZ(50px);
+}
+.cubo .izq {
+  background-color: brown;
+  transform: translatex(-50px) rotateY(-90deg);
+}
+.cubo .der {
+  background-color: rgb(2, 228, 40);
+  transform: translatex(50px) rotateY(90deg);
+}
+.cubo .abajo {
+  background-color: coral;
+  transform: translateY(50px) rotateX(90deg);
+}
+.cubo .arriba {
+  background-color: rgb(187, 11, 99);
+  transform: translateY(-50px) rotateX(-90deg);
+}
+.cubo .dorso {
+  background-color: darkkhaki;
+  transform: translateZ(-50px) rotateY(180deg);
+}
+.cubo .frente {
+  background-color: rgb(0, 195, 255);
+  transform: translateZ(50px);
+}
+
+@keyframes girar {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}/*# sourceMappingURL=style.css.map */

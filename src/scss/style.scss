@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'fontAwesome';
+    src: url('../../assets/fonts/fontAwesome/fa-v4compatibility.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'fontAwesomeSolid';
+    src: url('../../assets/fonts/fontAwesome/fa-solid-900.ttf') format('truetype');
+  }
+@import "navbar";
+@import "card";
+@import "card2";
+@import "card3";
+@import "btn";
+@import "cubo";
+
+
+
+  
