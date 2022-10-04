@@ -196,3 +196,40 @@
     color: white;
     padding: 15px;
   }
+
+
+  .BotonCompraYaProductos{
+    width: 165px;
+    border: 0;
+    padding: 12px 10px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to right, #ff36c6, #f48210 );
+    border-radius: 6px;
+    cursor: pointer;
+    transition: width .5s;
+
+}
+
+.BotonCompraYaProductos img{
+  width: 30px;
+  display: none;
+}
+.BotonCompraYaProductos:hover{
+  width:200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.BotonCompraYaProductos:hover img{
+  display: block;
+}
+.BotonCompraYaProductos::after{
+  content: '';
+  width: 10px;
+  height: 63%;
+  background: linear-gradient(to right, #ff36c6, #f48210 );
+  position: absolute;
+  left: -40px;
+  top: 8px;
+}
