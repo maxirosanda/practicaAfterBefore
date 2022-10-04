@@ -1,15 +1,15 @@
-*{
-    margin: 0;
-    padding: 0
-}
+
 .contenedorCubo{
-    width: 100vh;
-    height: 500px;
+    width: 100vw;
+    height: 200px;
     display: flex;
     justify-content: center;
     margin-top: 20px;
     perspective: 600px;
-}
+    
+    
+   
+
 .cubo{
     position: relative;
     transform-style: preserve-3d;
@@ -56,11 +56,12 @@
     }
 
 }
-
+}
 @keyframes girar {
     0%{
         transform: rotateX(0deg) rotateY(0deg) ;
     }
+
     100%{
         transform: rotateX(360deg) rotateY(360deg) ;
     }
